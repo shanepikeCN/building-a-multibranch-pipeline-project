@@ -11,20 +11,12 @@ pipeline {
   stages {
     stage('Build'){
       steps {
-
+        sh 'npm install'
       }
     }
     stage('Test'){
     steps {
-
-      }
-    }
-    stage('Deliver for development'){
-      when {
-        branch 'Development'
-      }
-      steps {
-        sh './jenkins/scripts/deliver-for-development.sh'
+      sh './jenkins/scripts/test.sh'
       }
     }
   }
